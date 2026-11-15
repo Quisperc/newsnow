@@ -63,6 +63,11 @@ if (process.env.VERCEL) {
       connector: "bun-sqlite",
     },
   }
+} else if (process.env.EDGEONE) {
+  // EdgeOne Makers 云函数（Node.js 框架模式）：导出 (req,res) 监听器，由 Express 实例承载，
+  // 不自动启动 HTTP Server；无持久化数据库，走实时抓取（与 VERCEL 分支一致）。
+  nitroOption.preset = "node-listener"
+  nitroOption.database = undefined
 }
 
 export default function () {

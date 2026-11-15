@@ -1,0 +1,28 @@
+{
+  "buildCommand": "EDGEONE=1 pnpm build && node scripts/edgeone-patch-renderer.mjs",
+  "rewrites": [
+    {
+      "source": "/*",
+      "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/*",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    }
+  ],
+  "cloudFunctions": {
+    "nodejs": {
+      "includeFiles": [
+        "dist/output/server/**"
+      ],
+      "maxDuration": 60
+    }
+  }
+}
