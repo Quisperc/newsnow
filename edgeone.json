@@ -18,11 +18,9 @@
     }
   ],
   "cloudFunctions": {
-    "nodejs": {
-      "includeFiles": [
-        "dist/output/server/**"
-      ],
-      "maxDuration": 60
-    }
+    "includeFiles": [
+      "dist/output/server/**"
+    ],
+    "maxDuration": 60
   }
 }
